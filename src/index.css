@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 @import "tailwindcss";
 
 @keyframes fadeIn {
@@ -193,26 +191,3 @@ html {
   transition-duration: 300ms;
 }
 
-/* This style ensures the dark mode fills the entire viewport */
-html, body {
-  @apply min-h-screen;
-}
-
-/* These styles can be added if you want to customize scrollbars in dark mode */
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-gray-800;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gray-600 rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-500;
-  }
-}
