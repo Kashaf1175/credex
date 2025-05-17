@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Additional base styles */
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.section-title {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 2.25rem;
+  font-weight: 700; /* font-bold */
+  margin-bottom: 2rem; /* mb-8 */
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.25rem; /* md:text-4xl */
+    line-height: 2.5rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.25rem; /* text-xl */
+  color: #4b5563; /* text-gray-600 */
+  margin-bottom: 3rem; /* mb-12 */
+  text-align: center;
+  max-width: 48rem; /* max-w-3xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+.dark .section-subtitle {
+  color: #d1d5db; /* dark:text-gray-300 */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f3f4f6; /* gray-100 */
+}
+.dark ::-webkit-scrollbar-track {
+  background-color: #1f2937; /* gray-800 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3b82f6; /* blue-500 */
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2563eb; /* blue-600 */
+}
+
+/* Dark mode styles */
+.dark {
+  color-scheme: dark;
+}
+
+.dark .invert-on-dark {
+  filter: invert(1);
+}
+
+/* Custom focus styles */
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #3b82f6;
+  /* For dark mode ring offset, you may need to handle this with a selector or utility class */
+}
+
+/* Form element consistent styling */
+input, textarea, select {
+  display: block;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: #d1d5db; /* gray-300 */
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 200ms;
+  background-color: #fff;
+  color: #111827;
+}
+.dark input,
+.dark textarea,
+.dark select {
+  border-color: #4b5563; /* gray-600 */
+  background-color: #1f2937; /* gray-800 */
+  color: #fff;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #3b82f6; /* blue-500 */
+  border-color: #3b82f6; /* blue-500 */
+}
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+  border-color: #3b82f6;
+}
+
+button {
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+} 
+
+/* Full color background for mobile menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+.dark .mobile-menu {
+  background-color: #111827; /* Tailwind's gray-900 */
+}
+
+html {
+  transition: color 0.3s, background-color 0.3s;
+}
+
+/* Make sure mobile menu animations work properly */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-in-out;
+}
+
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* This style ensures the dark mode fills the entire viewport */
+html, body {
+  @apply min-h-screen;
+}
+
+/* These styles can be added if you want to customize scrollbars in dark mode */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+}
